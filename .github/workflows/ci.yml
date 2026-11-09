@@ -1,0 +1,51 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  # One-time: if amp-repo.zip was uploaded, extract it to the repository root, delete the zip, commit.
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack amp-repo.zip
+        if: hashFiles('amp-repo.zip') != ''
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/u && mkdir /tmp/u && unzip -q amp-repo.zip -d /tmp/u
+          src=/tmp/u/amp
+          test -f "$src/README.md"
+          rm -rf "$src/.github"
+          cp -a "$src"/. .
+          git rm -q amp-repo.zip
+          git config user.name "Nizar Jasim Mohammed Al-Zubaidi"
+          git config user.email "271299781+NizarJasim1@users.noreply.github.com"
+          git add -A
+          git commit -m "AMP v6.7: pre-registered elicitation study"
+          git push
+
+  test:
+    needs: unpack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild the kit from the generator
+        if: hashFiles('src/make_kit.py') != ''
+        run: python src/make_kit.py --seeds 30 --out kit
+      - name: Rebuilt kit is byte-identical to the tracked kit
+        if: hashFiles('src/make_kit.py') != ''
+        run: git diff --exit-code -- kit
+      - name: Tests
+        if: hashFiles('src/make_kit.py') != ''
+        run: cd tests_code && python -m unittest discover -p 'test_*.py'
