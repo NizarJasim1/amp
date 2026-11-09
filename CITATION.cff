@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software or the study design, please cite it as below."
+title: "AMP: a pre-registered test of how much of a model generation is reachable by method"
+version: 6.7.0
+date-released: 2026-11-09
+authors:
+  - given-names: Nizar
+    alias: NJBLACKCROW
+keywords:
+  - language models
+  - capability elicitation
+  - verification
+  - calibration
+  - pre-registration

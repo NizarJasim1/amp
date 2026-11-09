@@ -1,0 +1,13 @@
+Solve the problems below. Each has one exact answer. Final answer: one ```json block, last in your reply: {"Q1": "...", ...} with every answer a JSON string (a decimal integer, or a reduced fraction "a/b" where asked). Also put in that JSON "_conf": {"Q1": 0.9, ...}: for each item, your probability (0 to 1) that the answer is exactly right.
+
+Q1. Let N = 313763207112878119. How many integers x with 1 <= x <= N are divisible by 19 and have no digit 7 in their decimal representation? Give the exact count.
+
+Q2. How many strings of length n = 501595812829 over an alphabet of 3 letters are there up to rotation (two strings are the same if one is a cyclic rotation of the other)? Give the count modulo 1000000007.
+
+Q3. A pile has n tokens. Two players alternate; a move removes exactly 1, 5 or 12 tokens (never more than the pile holds). A player who cannot move loses. For how many n with 1 <= n <= 10^16 is the player about to move in a losing position? Give the exact count.
+
+Q4. Let N = 808246242. Compute the exact sum of gcd(i, j) over all pairs of integers 1 <= i <= N and 1 <= j <= N.
+
+Q5. Count the strings of length n = 10^18 over the alphabet {A, B, C} in which no two adjacent letters are equal and none of "ACB" occurs as a contiguous substring. Give the count modulo 1000000007.
+
+Q6. A biased coin shows heads (H) with probability 3/5 and tails (T) with probability 2/5. It is flipped until either THHT or THTT appears as consecutive flips. What is the exact probability that THHT appears first? Give a reduced fraction a/b.

@@ -1,0 +1,20 @@
+SIMULATION (mechanism demo, not real-model evidence). 2000 tasks per cell.
+'think' adds the SAME bump to both models; 'oracle' filters candidates by an external check (oracle-rich only).
+
+| tasks | scaffold | weak | strong | weak − strong |
+|---|---|---|---|---|
+| oracle-rich | none | 0.447 | 0.709 | -0.262 |
+| oracle-rich | think | 0.491 | 0.765 | -0.274 |
+| oracle-rich | oracle | 0.877 | 0.962 | -0.085 |
+| oracle-poor | none | 0.455 | 0.683 | -0.228 |
+| oracle-poor | think | 0.495 | 0.773 | -0.278 |
+| oracle-poor | oracle | 0.509 | 0.758 | -0.249 |
+
+weak+oracle vs strong+none   (oracle-rich): +0.168  <- weak passes the UNSCAFFOLDED strong model, via the oracle
+weak+oracle vs strong+oracle (oracle-rich): -0.085  <- give the strong model the SAME oracle and it stays ahead
+weak+think  vs strong+think  (oracle-rich): -0.274  <- organising thought alone keeps the strong model ahead
+weak+oracle vs strong+think  (oracle-poor): -0.264  <- with no external check, no superiority (as predicted)
+
+HONEST SCOPE: the weak model passes the strong one only when the strong one is NOT itself using the scaffold.
+With the same oracle on both, the stronger model stays ahead. The claim is 'closes / crosses the gap to the
+plain stronger model', never 'beats the stronger model also running AMP'.

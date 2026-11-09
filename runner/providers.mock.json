@@ -1,0 +1,1 @@
+{"models": {"48": {"provider": "mock"}, "55": {"provider": "mock"}}, "limits": {"max_tool_calls_per_part": 5, "tool_timeout": 30}}

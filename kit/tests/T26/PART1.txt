@@ -1,0 +1,13 @@
+Solve the problems below. Each has one exact answer. Final answer: one ```json block, last in your reply: {"Q1": "...", ...} with every answer a JSON string (a decimal integer, or a reduced fraction "a/b" where asked). Also put in that JSON "_conf": {"Q1": 0.9, ...}: for each item, your probability (0 to 1) that the answer is exactly right.
+
+Q1. How many spanning trees does the cylinder graph with 4 rows and n columns (cells sharing a side are adjacent, and additionally the top and bottom cell of every column are adjacent) have for n = 603966291116356129? Give the count modulo 1000000007.
+
+Q2. A pile has n tokens. Two players alternate; a move removes exactly 8, 12, 13 or 14 tokens (never more than the pile holds). A player who cannot move loses. For how many n with 1 <= n <= 10^15 is the player about to move in a losing position? Give the exact count.
+
+Q3. Let N = 530052681. Compute the exact sum of gcd(i, j) over all pairs of integers 1 <= i <= N and 1 <= j <= N.
+
+Q4. How many strings of length n = 696671233827 over an alphabet of 2 letters are there up to rotation (two strings are the same if one is a cyclic rotation of the other)? Give the count modulo 1000000007.
+
+Q5. Let N = 574215605466934556. How many integers x with 1 <= x <= N are divisible by 17 and have no digit 4 in their decimal representation? Give the exact count.
+
+Q6. Count the strings of length n = 10^18 over the alphabet {A, B, C, D} in which no two adjacent letters are equal and none of "BCD" occurs as a contiguous substring. Give the count modulo 1000000007.

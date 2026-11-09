@@ -1,0 +1,108 @@
+Two programs are documented below. For each input give the program's exact full output.
+
+kvdb - in-memory key-value store driven by commands on standard input, one per line.
+Blank lines are ignored. Keys and values are single words (case-sensitive); command names are case-insensitive.
+  SET key value   store value under key (no output)
+  GET key         print the value, or NULL if the key is absent
+  DEL key         remove key (no output; removing an absent key is fine)
+  COUNT value     print how many keys currently hold exactly this value
+  INCR key        treat the value as an integer (absent = 0), add 1, store and print the new value;
+                  if the value is not an integer (optional '-' then digits only), print ERR and change nothing
+  BEGIN           open a transaction; transactions nest
+  ROLLBACK        undo every change made since the most recent open BEGIN and close it;
+                  print NO TRANSACTION if none is open
+  COMMIT          make all changes permanent and close ALL open transactions; NO TRANSACTION if none is open
+Any other command, or a wrong number of arguments, prints ERR and changes nothing.
+
+K1. Input (stdin):
+```
+ROLLBACK
+GET x1
+rollback x
+SET onlykey
+SET x1 2
+DEL a
+ROLLBACK
+BEGIN
+SET c -3
+ROLLBACK
+GET Key
+BEGIN
+ROLLBACK
+GET c
+ROLLBACK
+COUNT -3
+COUNT 2
+INCR a
+BEGIN
+DEL Key
+COUNT 2
+GET c
+get a
+GET a
+COMMIT
+GET Key
+BEGIN
+COMMIT
+BEGIN
+SET c 1
+ROLLBACK
+BEGIN
+GET Key
+GET b
+SET Key 07
+GET x1
+GET x1
+COMMIT
+INCR b
+SET onlykey
+COMMIT
+COMMIT
+FOO bar
+INCR b
+SET b v
+ROLLBACK
+ROLLBACK
+SET x1 07
+INCR Key
+BEGIN
+COMMIT
+begin
+GET a
+COUNT 07
+GET Key
+COUNT -3
+SET Key 2
+INCR b
+```
+
+textfmt - paragraph formatter.
+The first input line is the header: WIDTH [MODE], where WIDTH is a positive integer and MODE is one of
+left (default), right, center, justify. The rest of the input is text. Paragraphs are separated by one
+or more blank (or whitespace-only) lines; inside a paragraph, line breaks and runs of spaces/tabs only
+separate words.
+Each paragraph is filled greedily: as many words as fit on a line of at most WIDTH characters with
+single spaces between them. A word longer than WIDTH is cut into pieces of exactly WIDTH characters
+(the last piece may be shorter), and each piece is placed like a word.
+  left     lines as filled, no trailing spaces
+  right    lines padded on the left with spaces to exactly WIDTH
+  center   lines padded on the left with floor((WIDTH - length) / 2) spaces, no trailing spaces
+  justify  every line except a paragraph's last line and except single-word lines is stretched to
+           exactly WIDTH by widening the gaps between words; extra spaces go to the leftmost gaps
+Paragraphs in the output are separated by exactly one empty line. No output for empty text.
+
+T1. Input (stdin):
+```
+26 right
+of in dog
+justify paragraph quick paragraph
+
+supercalifragilistic at it
+paragraph be in supercalifragilistic we over over
+of
+to
+no over fox elephant
+dog a paragraph
+```
+
+Final answer: one ```json block, last in your reply: {"K1": "...", "T1": "..."} (complete outputs as single strings, lines joined with \n, keep every space, no trailing newline). Also put in that JSON "_conf": {"K1": 0.9, "T1": 0.9}: your probability (0 to 1) that each output is exactly right.

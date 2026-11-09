@@ -1,0 +1,11 @@
+# answer key: regenerate with `make kit` (its hash is in kit/PREREG.md)
+kit/sealed/
+# run outputs and local results
+runs*/
+results/
+_work/
+runner/providers.json
+# python
+__pycache__/
+*.pyc
+.venv/

@@ -1,0 +1,48 @@
+{
+  "_note": "Fill model ids and prices from the official docs/pricing pages on the day you run. Keys come from the env variables named here. Model keys ('48', '55', ...) must match the 'model' column of plan.csv. Optional 'verifier' on a model = another model key used for independent cross-source checks (Track B realises source='model:B'). The verifier must NOT be one of the models compared in the plan (e.g. never '55' for '48': the weak arm would get the strong arm's answers); the runner refuses that. Use a third model that is not stronger than the weak arm, e.g. 'os1', or leave it null.",
+  "models": {
+    "48": {
+      "provider": "anthropic",
+      "model": "<fill: Opus 4.8 API model id>",
+      "max_tokens": 16000,
+      "key_env": "ANTHROPIC_API_KEY",
+      "extra": {},
+      "price_per_mtok": {
+        "in": 0,
+        "out": 0,
+        "cache_write": 0,
+        "cache_read": 0
+      },
+      "verifier": null
+    },
+    "55": {
+      "provider": "anthropic",
+      "model": "claude-opus-5-5",
+      "max_tokens": 16000,
+      "key_env": "ANTHROPIC_API_KEY",
+      "extra": {},
+      "price_per_mtok": {
+        "in": 0,
+        "out": 0,
+        "cache_write": 0,
+        "cache_read": 0
+      }
+    },
+    "os1": {
+      "provider": "openai",
+      "base_url": "<fill: https://your-endpoint/v1>",
+      "model": "<fill: open model id>",
+      "max_tokens": 16000,
+      "key_env": "OPENAI_API_KEY",
+      "extra": {},
+      "price_per_mtok": {
+        "in": 0,
+        "out": 0
+      }
+    }
+  },
+  "limits": {
+    "max_tool_calls_per_part": 60,
+    "tool_timeout": 300
+  }
+}

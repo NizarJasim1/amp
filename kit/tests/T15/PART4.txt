@@ -1,0 +1,11 @@
+Four open construction / optimisation problems. Give your best VALID solution to each.
+
+C1. Place 32 non-overlapping circles inside the unit square [0,1] x [0,1] to MAXIMISE the sum of their radii. Circles may touch (tolerance 1e-9). Output: a list of 32 triples [x, y, r].
+
+C2. Find the LARGEST cap set you can in F_3^7: distinct vectors of length 7 with entries in {0,1,2}, such that no three distinct vectors a, b, c satisfy a + b + c = 0 (mod 3) in every coordinate. Output: the list of vectors.
+
+C3. Choose 29 distinct non-negative integers (marks) such that all pairwise differences are distinct, MINIMISING the largest mark minus the smallest mark. Output: the sorted list of 29 integers.
+
+C4. Fill a 15 x 15 grid with 0s and 1s to MAXIMISE the number of 1s, such that no four 1s form the corners of a rectangle (no two rows both have a 1 in the same two columns). Output: a list of 15 strings of 15 characters '0'/'1'.
+
+Final answer: one ```json block, last in your reply: {"C1": [[x, y, r], ...], "C2": [[...], ...], "C3": [...], "C4": ["0101...", ...]}

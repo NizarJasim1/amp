@@ -1,0 +1,13 @@
+Solve the problems below. Each has one exact answer. Final answer: one ```json block, last in your reply: {"Q1": "...", ...} with every answer a JSON string (a decimal integer, or a reduced fraction "a/b" where asked). Also put in that JSON "_conf": {"Q1": 0.9, ...}: for each item, your probability (0 to 1) that the answer is exactly right.
+
+Q1. Count the strings of length n = 10^18 over the alphabet {A, B, C, D} in which no two adjacent letters are equal and none of "DBC" occurs as a contiguous substring. Give the count modulo 1000000007.
+
+Q2. How many spanning trees does the graph on a 2 x n array of cells where cell (r, c) is adjacent to (r+1, c), (r, c+1) and (r+1, c+1) whenever those cells exist have for n = 213866430607733450? Give the count modulo 1000000007.
+
+Q3. Let N = 522546304474165644. How many integers x with 1 <= x <= N are divisible by 9 and have no digit 2 in their base-3 representation? Give the exact count.
+
+Q4. Let N = 212487636. Compute the exact sum of gcd(i, j) over all pairs of integers 1 <= i <= N and 1 <= j <= N.
+
+Q5. A pile has n tokens. Two players alternate; a move removes exactly 3, 4, 8 or 10 tokens (never more than the pile holds). A player who cannot move loses. For how many n with 1 <= n <= 10^15 is the player about to move in a losing position? Give the exact count.
+
+Q6. A biased coin shows heads (H) with probability 1/2 and tails (T) with probability 1/2. It is flipped until either HTTHT or TTHTT appears as consecutive flips. What is the exact probability that HTTHT appears first? Give a reduced fraction a/b.
